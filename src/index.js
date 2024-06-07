@@ -2,12 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import UserPosts from './components/UserPosts';
+import Countdown from './components/Countdown';
+import WindowResize from './components/WindowResize';
+import InputValidation from './components/InputValidation';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const userID =1;
+const isEmailValid = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <UserPosts userId={userID}/> */}
+    {/* <Countdown init = {60} /> */}
+    {/* <WindowResize /> */}
+    <InputValidation
+        typeOfValidation={isEmailValid}
+        errorMessage="Please enter a valid email address."
+    />
   </React.StrictMode>
 );
 
